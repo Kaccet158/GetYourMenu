@@ -1,5 +1,6 @@
 import os 
 from gemini_chat import GeminiBot
+from rich.console import Console
 
 #Files managment 
 menuName = "menu.txt"
@@ -18,11 +19,25 @@ else:
 
 #Gemini Funciotnality
 GeminiFunction = GeminiBot()
+console = Console()
+
 menuStartMessage = "Okay let's create restaurant's menu!\nWhat should be your restaurant's menu?\n"
 menuConcept = input(menuStartMessage)
-answer = GeminiFunction.ask(menuConcept)
+
+with console.status("[Yellow]Crafting menu . . .", spinner = "dots"):
+    answer = GeminiFunction.ask(menuConcept)
 print(answer)
-menuEndMessage = input("Okay, your menu  created! Do you want to add something? (y/n) ")
+
+while True: 
+    menuEndMessage = input("Your menu looks gorgeuos! Do you want to add something? (y/n) ")
+    if menuEndMessage.lower() != "n":
+        menuMessage = input("Okay so what we need to change?")
+        answer = GeminiFunction.ask(menuMessage)
+        print(answer)
+    else: 
+        print("Okay that's all. See ya!")
+        break 
+
 
 
 
