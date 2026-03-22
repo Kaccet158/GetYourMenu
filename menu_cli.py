@@ -24,14 +24,18 @@ console = Console()
 menuStartMessage = "Okay let's create restaurant's menu!\nWhat should be your restaurant's menu?\n"
 menuConcept = input(menuStartMessage)
 
-with console.status("[Yellow]Crafting menu . . .", spinner = "dots"):
+with console.status(
+    "[bold cyan]Crafting menu . . .[/bold cyan]", 
+    spinner = "dots",
+    spinner_style = "bold cyan"
+    ):
     answer = GeminiFunction.ask(menuConcept)
 print(answer)
 
 while True: 
     menuEndMessage = input("Your menu looks gorgeuos! Do you want to add something? (y/n) ")
     if menuEndMessage.lower() != "n":
-        menuMessage = input("Okay so what we need to change?")
+        menuMessage = input("Okay so what we need to change?\n")
         answer = GeminiFunction.ask(menuMessage)
         print(answer)
     else: 
