@@ -24,6 +24,7 @@ console = Console()
 menuStartMessage = "Okay let's create restaurant's menu!\nWhat should be your restaurant's menu?\n"
 menuConcept = input(menuStartMessage)
 
+
 with console.status(
     "[bold cyan]Crafting menu . . .[/bold cyan]", 
     spinner = "dots",
