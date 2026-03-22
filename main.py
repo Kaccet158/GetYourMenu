@@ -1,5 +1,8 @@
-import os   
-menuName = "menux.txt"
+import os 
+from gemini_chat import GeminiBot
+
+#Files managment 
+menuName = "menu.txt"
 
 if os.path.exists(menuName):
     with open(menuName, "r") as file:
@@ -13,6 +16,14 @@ else:
         print("Well, nothing will be created...")
         exit()
 
-menuConcept = input("Okay let's create restaurant's menu!\nWhat should be your reastrant's menu?\n")
-print(menuConcept)
+#Gemini Funciotnality
+GeminiFunction = GeminiBot()
+menuStartMessage = "Okay let's create restaurant's menu!\nWhat should be your restaurant's menu?\n"
+menuConcept = input(menuStartMessage)
+answer = GeminiFunction.ask(menuConcept)
+print(answer)
+menuEndMessage = input("Okay, your menu  created! Do you want to add something? (y/n) ")
+
+
+
         
