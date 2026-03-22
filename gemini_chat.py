@@ -8,7 +8,10 @@ genai.configure(api_key = api_key)
 
 class GeminiBot:
     def __init__(self, model_name = "gemini-2.5-flash"):
-        self.model = genai.GenerativeModel(model_name)
+        self.model = genai.GenerativeModel(
+            model_name = model_name, 
+            system_instruction = "Your are profesional manager of restaurant and you are super creative menu compositor. Your goal is to create simple but amazing menu for restarants"
+        )
         self.chat_session = self.model.start_chat(history=[])
     
     def ask(self, message):
