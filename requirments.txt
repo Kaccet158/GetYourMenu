@@ -5,6 +5,7 @@ cffi==2.0.0
 charset-normalizer==3.4.5
 cryptography==46.0.5
 distro==1.9.0
+fpdf==1.7.2
 google-ai-generativelanguage==0.6.15
 google-api-core==2.30.0
 google-api-python-client==2.193.0
